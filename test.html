@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title>Mobile Cookbook</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #someElm {
+      width: 100px;
+      height: 100px;
+      background:#ccc;
+      position:absolute;
+    }
+  </style>
+</head>
+<body>
+<header>
+</header>
+<div id="main">
+  <div id="someElm">
+  </div>
+</div>
+<footer>
+</footer>
+<script src="http://m.360hwj.com/js/jquery/jquery-1.11.3.js"></script>
+<!-- <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>-->
+<script>
+  $(function () {
+    var touch;
+
+    $('#someElm').on('touchmove',function(e){
+      touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+      var x = touch.pageX - parseFloat($(this).css("width"))/2;
+      var y = touch.pageY - parseFloat($(this).css("height"))/2;
+      $(this).css('left', x+'px');
+      $(this).css('top', y+'px');
+    });
+  })
+</script>
+</body>
+</html>
